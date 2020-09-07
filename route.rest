@@ -29,6 +29,8 @@ Content-Type: application/json
     "url": "https://www.naver.com",
     "key": "naver"
 }
+###
+GET http://localhost:3000/
 
 ###
 GET http://localhost:3000/urls

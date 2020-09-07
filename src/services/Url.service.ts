@@ -76,5 +76,3 @@ export function isUrlFormat(url) {
 export function generateRandomKey() {
   return Math.random().toString(36).substr(2, 10);
 }
-
-for (let i = 0; i < 10; i++) console.log(generateRandomKey());
