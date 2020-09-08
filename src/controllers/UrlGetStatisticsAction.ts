@@ -1,7 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { getManager } from "typeorm";
-import { Url } from "../entity/Url";
-import { CustomError } from "../utils/CustomError";
 import { getUrlByAccessKey } from "../services/Url.service";
 
 export async function urlGetStatisticsAction(
