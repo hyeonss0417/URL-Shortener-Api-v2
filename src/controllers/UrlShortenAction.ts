@@ -6,7 +6,7 @@ import {
 } from "../services/Url.service";
 import "../env";
 
-export async function urlShortenAction(
+export default async function urlShortenAction(
   req: Request,
   res: Response,
   next: NextFunction

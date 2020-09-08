@@ -1,8 +1,8 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { urlRedirectAction } from "./controllers/UrlRedirectAction";
-import { urlShortenAction } from "./controllers/UrlShortenAction";
-import { urlGetStatisticsAction } from "./controllers/UrlGetStatisticsAction";
-import { urlGetAllAcion } from "./controllers/UrlGetAllAction";
+import urlGetAllAcion from "./controllers/UrlGetAllAction";
+import urlShortenAction from "./controllers/UrlShortenAction";
+import urlRedirectAction from "./controllers/UrlRedirectAction";
+import urlGetStatisticsAction from "./controllers/UrlGetStatisticsAction";
 
 const router = Router();
 

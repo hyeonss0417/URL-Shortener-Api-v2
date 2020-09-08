@@ -1,12 +1,11 @@
 import * as express from "express";
-
 import bodyParser = require("body-parser");
-import router from "./routes";
 import { errorHandler } from "./utils/CustomMiddleware";
+import router from "./routes";
 
 const PORT = process.env.PORT || 3000;
 
-export function createApp() {
+export default function createApp() {
   const app = express();
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,11 +1,10 @@
-import { Request, Response, NextFunction, response } from "express";
+import { Request, Response, NextFunction } from "express";
 import {
   increaseAccessCount,
   getUrlByAccessKey,
 } from "../services/Url.service";
-import e = require("express");
 
-export async function urlRedirectAction(
+export default async function urlRedirectAction(
   req: Request,
   res: Response,
   next: NextFunction

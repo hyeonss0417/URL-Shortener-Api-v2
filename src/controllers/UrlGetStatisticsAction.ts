@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { getUrlByAccessKey } from "../services/Url.service";
 
-export async function urlGetStatisticsAction(
+export default async function urlGetStatisticsAction(
   req: Request,
   res: Response,
   next: NextFunction
