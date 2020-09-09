@@ -10,8 +10,7 @@ import _ = require("lodash");
 @Service()
 export default class UrlShortenrService {
   constructor(
-    @Inject("urlRepository") private urlRepository: Repository<Url>,
-    @Inject("logger") private logger
+    @Inject("urlRepository") private urlRepository: Repository<Url>
   ) {}
 
   public async ShortenUrl(urlInputDTO: IUrlInputDTO): Promise<{ url: string }> {
