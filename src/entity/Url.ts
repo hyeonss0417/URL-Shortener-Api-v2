@@ -1,7 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
-export const urlAccessKeyLength = 20;
-
 @Entity()
 export class Url {
   @PrimaryGeneratedColumn()
@@ -10,7 +8,7 @@ export class Url {
   @Column("text")
   url: string;
 
-  @Column({ length: urlAccessKeyLength, unique: true, nullable: false })
+  @Column({ length: 100, unique: true, nullable: false })
   access_key: string;
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
