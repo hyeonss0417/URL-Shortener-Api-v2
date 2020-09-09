@@ -32,7 +32,7 @@ transports.push(
   })
 );
 
-const Logger = winston.createLogger({
+const LoggerInstance = winston.createLogger({
   level: config.logs.level,
   levels: winston.config.npm.levels,
   format: winston.format.combine(
@@ -46,4 +46,4 @@ const Logger = winston.createLogger({
   transports,
 });
 
-export default Logger;
+export default LoggerInstance;

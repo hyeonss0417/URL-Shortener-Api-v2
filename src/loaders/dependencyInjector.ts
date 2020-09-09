@@ -1,4 +1,4 @@
-import Logger from "./logger";
+import LoggerInstance from "./logger";
 import Container from "typedi";
 
 export default ({
@@ -11,9 +11,9 @@ export default ({
       Container.set(r.name, r.repository);
     });
 
-    Container.set("logger", Logger);
+    Container.set("logger", LoggerInstance);
   } catch (e) {
-    Logger.error("🔥 Error on dependency injector loader: %o", e);
+    LoggerInstance.error("🔥 Error on dependency injector loader: %o", e);
     throw e;
   }
 };

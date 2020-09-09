@@ -6,6 +6,7 @@ import config from "../config";
 import apiRoutes from "../api-routes";
 import { CustomError } from "../utils/CustomError";
 import { isCelebrateError, CelebrateError } from "celebrate";
+import LoggerInstance from "./logger";
 
 export default ({ app }: { app: express.Application }) => {
   app.get("/status", (req, res) => {
@@ -38,6 +39,9 @@ export default ({ app }: { app: express.Application }) => {
   // Custom Error Handler
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof CustomError) {
+      LoggerInstance.error(
+        `[${err.status}/Custom] ${err.code} - ${err.message}`
+      );
       return res
         .status(err.status)
         .send({
@@ -57,8 +61,10 @@ export default ({ app }: { app: express.Application }) => {
         messages.push(`[${k}] ${v.message}.`);
       });
       const message = messages.join("\n");
+      const code = "WRONG_INPUT";
+      LoggerInstance.error(`[400/Celebrate] ${code} - ${message}`);
       return res.status(400).send({
-        error: "WRONG_INPUT",
+        error: code,
         message,
       });
     }
@@ -68,8 +74,10 @@ export default ({ app }: { app: express.Application }) => {
   // Handle 401 Authorization Error (thrown by express-jwt)
   app.use((err: Error, req, res: Response, next: NextFunction) => {
     if (err.name === "UnauthorizedError") {
+      const code = "UNAUTHORIZED";
+      LoggerInstance.error(`[401/Authorization] ${code} - ${err.message}`);
       return res.status(401).send({
-        error: "UNAUTHORIZED",
+        error: code,
         message: err.message,
       });
     }
@@ -78,10 +86,13 @@ export default ({ app }: { app: express.Application }) => {
 
   // Handle Generic Error
   app.use((err: Error, req, res: Response, next: NextFunction) => {
-    console.error(err);
+    const code = "GENERIC";
+    const message =
+      "Something went wrong. Please try again or contact support.";
+    LoggerInstance.error(`[500/GENERIC] ${code} - ${message}`);
     res.status(500).send({
-      error: "GENERIC",
-      message: "Something went wrong. Please try again or contact support.",
+      error: code,
+      message,
     });
     next();
   });

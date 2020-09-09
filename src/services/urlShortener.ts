@@ -38,7 +38,7 @@ export default class UrlShortenrService {
     return _.pick(url, ["url", "access_key", "access_count", "created_date"]);
   }
 
-  public async GetAllUrl(): Promise<Url[]> {
+  public async GetAllUrls(): Promise<Url[]> {
     return await this.urlRepository.find();
   }
 
