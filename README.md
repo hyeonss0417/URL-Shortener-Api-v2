@@ -1,7 +1,19 @@
-# Awesome Project Build with TypeORM
+# bulletproof-nodejs + typeorm
 
-Steps to run this project:
+## Project Structure
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+```
+src
+│   app.js          # App entry point
+└───api-routes      # Express route controllers for all the endpoints of the app
+└───config          # Environment variables and configuration related stuff
+└───loaders         # Split the startup process into modules
+└───models          # Database models
+└───services        # All the business logic is here
+└───subscribers     # Event handlers for async task
+└───types           # Type declaration files (d.ts) for Typescript
+└───interfaces      # Interface declaration for Typescript
+~~└───jobs            # Jobs definitions for agenda.js~~
+```
+
+Ref: https://github.com/santiq/bulletproof-nodejs
