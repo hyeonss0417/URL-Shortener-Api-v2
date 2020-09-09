@@ -1,12 +1,12 @@
 ###
-POST http://localhost:3000/urls
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
     "url": "ww.naver.com/"
 }
 ###
-POST http://localhost:3000/urls
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/urls
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
@@ -22,15 +22,15 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/urls
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
     "url": "https://www.naver.com",
-    "key": "naver"
+    "access_key": "naver"
 }
 ###
-GET http://localhost:3000/
+GET http://localhost:3000/status
 
 ###
 GET http://localhost:3000/urls

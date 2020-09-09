@@ -1,21 +1,28 @@
+import "reflect-metadata";
+
 import * as express from "express";
-import bodyParser = require("body-parser");
-import { errorHandler } from "./utils/CustomMiddleware";
-import router from "./routes";
 
-const PORT = process.env.PORT || 3000;
+import Logger from "./loaders/logger";
 
-export default function createApp() {
+import config from "./config";
+
+async function startServer() {
   const app = express();
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.use("/", router);
+  /**
+   * Import/Export can only be used in 'top-level code'
+   * At least in node 10 without babel.
+   * So we are using old require.
+   */
+  await require("./loaders").default({ expressApp: app });
 
-  app.use(errorHandler);
-
-  app.listen(PORT, () => {
-    console.log(`✅ Express server listening on localhost:${PORT}`);
+  app.listen(config.port, () => {
+    Logger.info(`
+      ################################################
+      🛡️  Server listening on port: ${config.port} 🛡️ 
+      ################################################
+    `);
   });
-  return app;
 }
+
+startServer();
