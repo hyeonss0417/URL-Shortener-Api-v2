@@ -5,6 +5,7 @@ import bodyParser = require("body-parser");
 import config from "../config";
 import apiRoutes from "../api-routes";
 import { CustomError } from "../utils/CustomError";
+import { isCelebrateError, CelebrateError } from "celebrate";
 
 export default ({ app }: { app: express.Application }) => {
   app.get("/status", (req, res) => {
@@ -41,9 +42,25 @@ export default ({ app }: { app: express.Application }) => {
         .status(err.status)
         .send({
           error: err.code,
-          description: err.message,
+          message: err.message,
         })
         .end();
+    }
+    return next(err);
+  });
+
+  // Handle 400 Request Validation Error. (thrown by Celebrate)
+  app.use((err: Error, req, res: Response, next: NextFunction) => {
+    if (isCelebrateError(err)) {
+      const messages = [];
+      (err as CelebrateError).details.forEach((v, k) => {
+        messages.push(`[${k}] ${v.message}.`);
+      });
+      const message = messages.join("\n");
+      return res.status(400).send({
+        error: "WRONG_INPUT",
+        message,
+      });
     }
     return next(err);
   });
@@ -53,7 +70,7 @@ export default ({ app }: { app: express.Application }) => {
     if (err.name === "UnauthorizedError") {
       return res.status(401).send({
         error: "UNAUTHORIZED",
-        description: err.message,
+        message: err.message,
       });
     }
     return next(err);
@@ -64,7 +81,7 @@ export default ({ app }: { app: express.Application }) => {
     console.error(err);
     res.status(500).send({
       error: "GENERIC",
-      description: "Something went wrong. Please try again or contact support.",
+      message: "Something went wrong. Please try again or contact support.",
     });
     next();
   });

@@ -3,7 +3,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "url": "ww.naver.com/"
+    "url": "ww.naver.com/",
+    "access_key": ""
 }
 ###
 POST http://localhost:3000/register
@@ -18,8 +19,18 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "url": "https://www.naver.com"
+    "url": "https://www.naver.com/"
 }
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "url": "https://www.naver.com",
+    "access_key": ""
+}
+
 
 ###
 POST http://localhost:3000/register
