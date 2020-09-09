@@ -1,0 +1,4 @@
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 01:58:16"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 01:58:16"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 01:58:16"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 01:58:16"}

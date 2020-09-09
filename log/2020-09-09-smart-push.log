@@ -16,6 +16,7 @@
 {"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-09 23:31:23"}
 {"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-09 23:31:23"}
 {"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-09 23:31:23"}
+<<<<<<< HEAD
 {"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-09 23:34:49"}
 {"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-09 23:34:49"}
 {"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-09 23:34:49"}
@@ -36,3 +37,5 @@
 {"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-09 23:43:35"}
 {"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-09 23:43:35"}
 {"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-09 23:43:35"}
+=======
+>>>>>>> 1c19b6ad339646131c1cab5a7c6e54fc1420e5e8
