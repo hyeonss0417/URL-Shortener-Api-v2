@@ -1,13 +1,12 @@
-import App from "../../server";
-import "../Unit/database";
+import { getApp, startServer } from "../../app";
 
+import "mocha";
 import * as chai from "chai";
 import chaiHttp = require("chai-http");
 
 chai.use(chaiHttp);
 
-before(async () => await App.listen());
+before("Starting Server", async () => await startServer());
+// after(async () => await connection.close());
 
-const app = App.getApp();
-
-export default () => chai.request(app);
+export default () => chai.request(getApp());

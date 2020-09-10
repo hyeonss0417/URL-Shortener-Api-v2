@@ -23,7 +23,7 @@ export default class UrlShortenrService {
     }
 
     const newUrl = await this.urlRepository.create(urlInputDTO);
-    return { url: `${config.domainName}:${config.port}/${newUrl.access_key}` };
+    return { url: `${config.urlRoot}/${newUrl.access_key}` };
   }
 
   public async GetRedirectUrl(access_key: string): Promise<string> {

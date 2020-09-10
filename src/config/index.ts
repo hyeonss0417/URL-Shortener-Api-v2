@@ -12,6 +12,8 @@ export default {
 
   domainName: process.env.DOMAIN_NAME,
 
+  urlRoot: `${process.env.PROTOCOL}://${process.env.DOMAIN_NAME}:${process.env.PORT}`,
+
   orm: {
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT, 10),

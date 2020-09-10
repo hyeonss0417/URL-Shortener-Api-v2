@@ -6,9 +6,11 @@ import Logger from "./loaders/logger";
 
 import config from "./config";
 
-async function startServer() {
-  const app = express();
+const app = express();
 
+export const getApp = () => app;
+
+export async function startServer() {
   /**
    * Import/Export can only be used in 'top-level code'
    * At least in node 10 without babel.
@@ -25,4 +27,6 @@ async function startServer() {
   });
 }
 
-startServer();
+if (process.env.NODE_ENV !== "test") {
+  startServer();
+}

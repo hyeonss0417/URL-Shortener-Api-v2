@@ -195,3 +195,23 @@
 {"level":"debug","message":"Calling Get url statistics endpoint with params: { access_key: 'naver' }","timestamp":"2020-09-10 03:46:24"}
 {"message":"[400/Celebrate] WRONG_INPUT - [body] \"url\" must be a valid uri.","level":"error","timestamp":"2020-09-10 03:46:26"}
 {"message":"[400/Celebrate] WRONG_INPUT - [body] \"url\" must be a valid uri.","level":"error","timestamp":"2020-09-10 03:46:26"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 18:04:52"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 18:04:52"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 18:04:52"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 18:04:52"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 18:07:33"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 18:07:33"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 18:07:33"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 18:07:33"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 18:09:06"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 18:09:06"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 18:09:06"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 18:09:06"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 18:10:14"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 18:10:14"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 18:10:14"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 18:10:14"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-10 18:19:03"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-10 18:19:03"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-10 18:19:03"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-10 18:19:03"}

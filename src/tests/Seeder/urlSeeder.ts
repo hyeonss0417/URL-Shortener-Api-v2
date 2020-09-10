@@ -1,4 +1,4 @@
-import { getManager } from "typeorm";
+import { getRepository } from "typeorm";
 import { Url } from "../../entity/Url";
 import { AsyncForEach } from "../../utils/jsUtils";
 
@@ -21,18 +21,17 @@ export const urlSeeds: UrlSeed[] = [
   },
   {
     url: "https://www.youtube.com/",
-    access_key: "customKey",
+    access_key: "existKey",
     access_count: 0,
   },
 ];
 
-export const getUrlSeed = () => {
+export const getRandomUrlSeed = () => {
   return urlSeeds[Math.floor(Math.random() * urlSeeds.length)];
 };
 
 export const urlSeeder = async () => {
-  const urlRepository = getManager().getRepository(Url);
-
+  const urlRepository = getRepository(Url);
   await AsyncForEach(urlSeeds, async (urlSeed) => {
     const url = new Url();
     Object.assign(url, urlSeed);
