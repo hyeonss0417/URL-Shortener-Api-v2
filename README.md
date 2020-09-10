@@ -1,6 +1,15 @@
-# bulletproof-nodejs + typeorm
+# bulletproof-nodejs-boilerplate
+
+- Language: Typescript
+- Server: express
+- DB: MySQL
+- ORM: typeorm
+- Testing: Mocha + chai + chai-http
+- etc: typedi(DI) + celebrate(Validator) + lodash(utils) + eslint
 
 ## Project Structure
+
+- 3 Layer Architecture - Controller -> Service Layer -> Data Access Layer
 
 ```
 src
@@ -14,8 +23,7 @@ src
 └───types           # Type declaration files (d.ts) for Typescript
 └───interfaces      # Interface declaration for Typescript
 └───utils           # Interface declaration for Typescript
-~~└───models          # MongoDB models~~
-~~└───jobs            # Jobs definitions for agenda.js~~
+└───jobs            # Jobs definitions for agenda.js
 ```
 
 Ref: https://github.com/santiq/bulletproof-nodejs
