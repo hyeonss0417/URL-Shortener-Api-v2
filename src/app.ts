@@ -6,9 +6,7 @@ import Logger from "./loaders/logger";
 
 import config from "./config";
 
-const app = express();
-
-export const getApp = () => app;
+export const app = express();
 
 export async function startServer() {
   /**

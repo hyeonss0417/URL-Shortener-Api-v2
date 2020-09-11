@@ -1,4 +1,4 @@
-import { getApp, startServer } from "../../app";
+import { app, startServer } from "../../app";
 
 import "mocha";
 import * as chai from "chai";
@@ -9,4 +9,4 @@ chai.use(chaiHttp);
 before("Starting Server", async () => await startServer());
 // after(async () => await connection.close());
 
-export default () => chai.request(getApp());
+export default () => chai.request(app);

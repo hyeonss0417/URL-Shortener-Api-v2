@@ -115,3 +115,7 @@
 {"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-11 03:43:16"}
 {"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-11 03:43:16"}
 {"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-11 03:43:16"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-11 04:03:54"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-11 04:03:54"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-11 04:03:54"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-11 04:03:54"}

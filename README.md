@@ -1,4 +1,4 @@
-# bulletproof-nodejs-boilerplate
+# express-typeorm-boilerplate
 
 - Language: Typescript
 - Server: express
