@@ -10,8 +10,7 @@ export const app = express();
 
 export async function startServer() {
   /**
-   * Import/Export can only be used in 'top-level code'
-   * At least in node 10 without babel.
+   * Import/Export can only be used in 'top-level code' at least in node 10 without babel.
    * So we are using old require.
    */
   await require("./loaders").default({ expressApp: app });
