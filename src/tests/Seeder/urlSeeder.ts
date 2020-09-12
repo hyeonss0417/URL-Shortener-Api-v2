@@ -4,25 +4,25 @@ import { AsyncForEach } from "../../utils/jsUtils";
 
 interface UrlSeed {
   url: string;
-  access_key: string;
-  access_count: number;
+  accessKey: string;
+  accessCount: number;
 }
 
 export const urlSeeds: UrlSeed[] = [
   {
     url: "https://www.naver.com/",
-    access_key: "1EiA912zuW",
-    access_count: 49,
+    accessKey: "1EiA912zuW",
+    accessCount: 49,
   },
   {
     url: "https://www.google.com/",
-    access_key: "81yQ0n39Rf",
-    access_count: 13,
+    accessKey: "81yQ0n39Rf",
+    accessCount: 13,
   },
   {
     url: "https://www.youtube.com/",
-    access_key: "existKey",
-    access_count: 0,
+    accessKey: "existKey",
+    accessCount: 0,
   },
 ];
 

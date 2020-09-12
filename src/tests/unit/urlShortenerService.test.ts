@@ -26,12 +26,12 @@ describe("[Unit] UrlShortener Service test", () => {
       expect(isUrlFormat(url)).to.be.true;
     });
 
-    it("should return shortened URL with custom access_key", async function () {
+    it("should return shortened URL with custom accessKey", async function () {
       const customKey = "customKey";
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const { url } = await urlShortenerService.ShortenUrl({
         url: "https://www.naver.com",
-        access_key: customKey,
+        accessKey: customKey,
       });
       expect(url).to.not.be.undefined;
       expect(isUrlFormat(url)).to.be.true;
@@ -44,7 +44,7 @@ describe("[Unit] UrlShortener Service test", () => {
       const err: CustomError = await urlShortenerService
         .ShortenUrl({
           url: "https://www.naver.com",
-          access_key: "existKey",
+          accessKey: "existKey",
         })
         .catch((e) => e);
       expect(err).to.be.an("error");
@@ -56,7 +56,7 @@ describe("[Unit] UrlShortener Service test", () => {
     it("should return the url for redirection", async function () {
       const urlSeed = getRandomUrlSeed();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
-      const url = await urlShortenerService.GetRedirectUrl(urlSeed.access_key);
+      const url = await urlShortenerService.GetRedirectUrl(urlSeed.accessKey);
 
       expect(url).to.not.be.undefined;
       expect(url).to.be.equal(urlSeed.url);
@@ -78,14 +78,14 @@ describe("[Unit] UrlShortener Service test", () => {
       const urlSeed = getRandomUrlSeed();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const statistics = await urlShortenerService.GetUrlStatistics(
-        urlSeed.access_key
+        urlSeed.accessKey
       );
 
       expect(statistics).to.not.be.undefined;
       expect(statistics.url).to.be.equal(urlSeed.url);
-      expect(statistics.access_key).to.be.equal(urlSeed.access_key);
-      expect(statistics.access_count).to.be.equal(urlSeed.access_count);
-      expect(statistics.created_date).to.be.instanceOf(Date);
+      expect(statistics.accessKey).to.be.equal(urlSeed.accessKey);
+      expect(statistics.accessCount).to.be.equal(urlSeed.accessCount);
+      expect(statistics.createDate).to.be.instanceOf(Date);
     });
 
     it("should return Error (NOT_FOUND)", async function () {

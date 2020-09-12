@@ -1,4 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from "typeorm";
 
 @Entity()
 export class Url {
@@ -8,12 +13,12 @@ export class Url {
   @Column("text")
   url: string;
 
-  @Column({ length: 100, unique: true, nullable: false })
-  access_key: string;
-
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  created_date: string;
+  @Column({ length: 100, unique: true })
+  accessKey: string;
 
   @Column({ default: 0 })
-  access_count: number;
+  accessCount: number;
+
+  @CreateDateColumn()
+  createDate: string;
 }

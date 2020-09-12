@@ -1,12 +1,12 @@
 export interface IUrl {
   id: number;
   url: string;
-  access_key: string;
-  created_date: string;
-  access_count: number;
+  accessKey: string;
+  createDate: string;
+  accessCount: number;
 }
 
 export interface IUrlInputDTO {
   url: string;
-  access_key?: string;
+  accessKey?: string;
 }

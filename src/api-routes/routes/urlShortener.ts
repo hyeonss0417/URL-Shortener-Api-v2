@@ -48,7 +48,7 @@ export default (app: Router) => {
     }
   });
 
-  route.get("/:access_key", async function redirectToUrlAction(
+  route.get("/:accessKey", async function redirectToUrlAction(
     req: Request,
     res: Response,
     next: NextFunction
@@ -58,17 +58,17 @@ export default (app: Router) => {
       "Calling Redirect to the url endpoint with params: %o",
       req.params
     );
-    const access_key = req.params.access_key as string;
+    const accessKey = req.params.accessKey as string;
     try {
       const urlShortenerServiceInstance = Container.get(UrlShortenrService);
-      const url = await urlShortenerServiceInstance.GetRedirectUrl(access_key);
+      const url = await urlShortenerServiceInstance.GetRedirectUrl(accessKey);
       res.redirect(302, url);
     } catch (err) {
       next(err);
     }
   });
 
-  route.get("/:access_key/stat", async function getUrlStatisticsAction(
+  route.get("/:accessKey/stat", async function getUrlStatisticsAction(
     req: Request,
     res: Response,
     next: NextFunction
@@ -78,11 +78,11 @@ export default (app: Router) => {
       "Calling Get url statistics endpoint with params: %o",
       req.params
     );
-    const access_key = req.params.access_key as string;
+    const accessKey = req.params.accessKey as string;
     try {
       const urlShortenerServiceInstance = Container.get(UrlShortenrService);
       const urlStat = await urlShortenerServiceInstance.GetUrlStatistics(
-        access_key
+        accessKey
       );
       res.status(200).send(urlStat);
     } catch (err) {

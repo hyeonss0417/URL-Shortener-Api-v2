@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "url": "ww.naver.com/",
-    "access_key": ""
+    "accessKey": ""
 }
 ###
 POST http://localhost:3000/register
@@ -28,7 +28,7 @@ Content-Type: application/json
 
 {
     "url": "https://www.naver.com",
-    "access_key": ""
+    "accessKey": ""
 }
 
 
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 {
     "url": "https://www.naver.com",
-    "access_key": "naver"
+    "accessKey": "naver"
 }
 ###
 GET http://localhost:3000/status

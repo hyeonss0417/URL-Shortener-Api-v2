@@ -4,7 +4,7 @@ export default {
   shortenUrl: celebrate({
     body: Joi.object({
       url: Joi.string().required().uri(),
-      access_key: Joi.string()
+      accessKey: Joi.string()
         .min(1)
         .max(100)
         .regex(/^[\w-]+$/),
