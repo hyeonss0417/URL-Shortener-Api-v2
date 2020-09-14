@@ -7,15 +7,10 @@ import { Url } from "../../entity/Url";
 import { isUrlFormat } from "../../utils/utils";
 import { urlSeeder, getRandomUrlSeed, urlSeeds } from "../Seeder/urlSeeder";
 import { CustomError } from "../../utils/CustomError";
-import dbConnection from "../../loaders/database";
 
 const expect = chai.expect;
 
 describe("[Unit] UrlShortener Service test", () => {
-  beforeEach("DB Clear & Make Seeds", async () => {
-    await dbConnection.clear();
-    await urlSeeder();
-  });
   context("🔎 ShortenUrl", () => {
     it("should return shortened URL", async function () {
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
@@ -27,6 +22,7 @@ describe("[Unit] UrlShortener Service test", () => {
     });
 
     it("should return shortened URL with custom accessKey", async function () {
+      await urlSeeder();
       const customKey = "customKey";
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const { url } = await urlShortenerService.ShortenUrl({
@@ -39,6 +35,7 @@ describe("[Unit] UrlShortener Service test", () => {
     });
 
     it("should return Error (DUPLICATE_KEY)", async function () {
+      await urlSeeder();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
 
       const err: CustomError = await urlShortenerService
@@ -54,6 +51,7 @@ describe("[Unit] UrlShortener Service test", () => {
 
   context("🔎 GetRedirectUrl", () => {
     it("should return the url for redirection", async function () {
+      await urlSeeder();
       const urlSeed = getRandomUrlSeed();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const url = await urlShortenerService.GetRedirectUrl(urlSeed.accessKey);
@@ -75,6 +73,7 @@ describe("[Unit] UrlShortener Service test", () => {
 
   context("🔎 GetUrlStatistics", () => {
     it("should return statistics of the url", async function () {
+      await urlSeeder();
       const urlSeed = getRandomUrlSeed();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const statistics = await urlShortenerService.GetUrlStatistics(
@@ -101,6 +100,7 @@ describe("[Unit] UrlShortener Service test", () => {
 
   context("🔎 GetAllUrls", () => {
     it("should return all urls", async function () {
+      await urlSeeder();
       const urlShortenerService = new UrlShortenrService(getRepository(Url));
       const urls = await urlShortenerService.GetAllUrls();
 

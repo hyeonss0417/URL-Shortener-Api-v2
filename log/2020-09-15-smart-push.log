@@ -1,0 +1,12 @@
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-15 03:47:50"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-15 03:47:51"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-15 03:47:51"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-15 03:47:51"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-15 03:51:54"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-15 03:51:54"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-15 03:51:54"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-15 03:51:54"}
+{"message":"✅ DB loaded and connected!","level":"info","timestamp":"2020-09-15 03:59:48"}
+{"message":"✅ Dependency Injector loaded.","level":"info","timestamp":"2020-09-15 03:59:48"}
+{"message":"✅ Express loaded.","level":"info","timestamp":"2020-09-15 03:59:48"}
+{"message":"\n      ################################################\n      🛡️  Server listening on port: 3000 🛡️ \n      ################################################\n    ","level":"info","timestamp":"2020-09-15 03:59:48"}

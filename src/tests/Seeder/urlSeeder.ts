@@ -1,6 +1,5 @@
 import { getRepository } from "typeorm";
 import { Url } from "../../entity/Url";
-import { AsyncForEach } from "../../utils/jsUtils";
 
 interface UrlSeed {
   url: string;
@@ -32,9 +31,11 @@ export const getRandomUrlSeed = () => {
 
 export const urlSeeder = async () => {
   const urlRepository = getRepository(Url);
-  await AsyncForEach(urlSeeds, async (urlSeed) => {
-    const url = new Url();
-    Object.assign(url, urlSeed);
-    await urlRepository.save(url);
-  });
+  await Promise.all(
+    urlSeeds.map(async (urlSeed) => {
+      const url = new Url();
+      Object.assign(url, urlSeed);
+      return await urlRepository.save(url);
+    })
+  );
 };

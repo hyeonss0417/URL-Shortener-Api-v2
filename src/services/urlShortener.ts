@@ -17,9 +17,9 @@ export default class UrlShortenrService {
     const customAccessKey = urlInputDTO.accessKey;
 
     if (customAccessKey) {
-      await this.validateAccesKey(customAccessKey);
+      await this._validateAccesKey(customAccessKey);
     } else {
-      urlInputDTO.accessKey = await this.getRandomUniqueAccessKey();
+      urlInputDTO.accessKey = await this._getRandomUniqueAccessKey();
     }
 
     const newUrl = await this.urlRepository.create(urlInputDTO);
@@ -27,13 +27,13 @@ export default class UrlShortenrService {
   }
 
   public async GetRedirectUrl(accessKey: string): Promise<string> {
-    const existUrl = await this.getUrlByAccessKey(accessKey);
-    await this.increaseAccessCount(existUrl);
+    const existUrl = await this._getUrlByAccessKey(accessKey);
+    await this._increaseAccessCountById(existUrl.id);
     return existUrl.url;
   }
 
   public async GetUrlStatistics(accessKey: string) {
-    const url = await this.getUrlByAccessKey(accessKey);
+    const url = await this._getUrlByAccessKey(accessKey);
     return _.pick(url, ["url", "accessKey", "accessCount", "createDate"]);
   }
 
@@ -41,7 +41,7 @@ export default class UrlShortenrService {
     return await this.urlRepository.find();
   }
 
-  private async getUrlByAccessKey(accessKey: string): Promise<Url> {
+  private async _getUrlByAccessKey(accessKey: string): Promise<Url> {
     const url = await this.urlRepository.findOne({ accessKey });
     if (!url) {
       throw new CustomError("NOT_FOUND", 404, "This is an invalid URL.");
@@ -49,8 +49,8 @@ export default class UrlShortenrService {
     return url;
   }
 
-  private async validateAccesKey(accessKey: string) {
-    if (!(await this.isUniqueAccessKey(accessKey))) {
+  private async _validateAccesKey(accessKey: string) {
+    if (!(await this._isUniqueAccessKey(accessKey))) {
       throw new CustomError(
         "DUPLICATE_KEY",
         400,
@@ -59,27 +59,25 @@ export default class UrlShortenrService {
     }
   }
 
-  private async isUniqueAccessKey(accessKey: string) {
+  private async _isUniqueAccessKey(accessKey: string): Promise<boolean> {
     const existUrl = await this.urlRepository.findOne({ accessKey });
     if (!existUrl) return true;
     else return false;
   }
 
-  private async increaseAccessCount(url: Url) {
-    url.accessCount++;
-    await this.urlRepository.save(url);
+  private async _increaseAccessCountById(id: number) {
+    await this.urlRepository.increment({ id }, "accessCount", 1);
   }
 
-  private async getRandomUniqueAccessKey() {
-    const maximumTry = 10;
-    for (let i = 0; i < maximumTry; i++) {
-      const newKey = generateRandomKey();
-      if (await this.isUniqueAccessKey(newKey)) return newKey;
+  private async _getRandomUniqueAccessKey(): Promise<string> {
+    const newKey = generateRandomKey();
+    if (await this._isUniqueAccessKey(newKey)) return newKey;
+    else {
+      throw new CustomError(
+        "SERVICE_ERROR",
+        500,
+        "Failed to generate arbitrary unique access key. Please try again"
+      );
     }
-    throw new CustomError(
-      "SERVICE_ERROR",
-      500,
-      "Could not generate unique access key."
-    );
   }
 }

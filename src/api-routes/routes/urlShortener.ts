@@ -2,8 +2,8 @@ import { Router, Request, Response, NextFunction } from "express";
 import { IUrlInputDTO } from "../../interfaces/IUrl";
 import Container from "typedi";
 import UrlShortenrService from "../../services/urlShortener";
-import validators from "../middlewares/validators";
 import { Logger } from "winston";
+import { celebrate, Joi } from "celebrate";
 
 const route = Router();
 
@@ -12,7 +12,15 @@ export default (app: Router) => {
 
   route.post(
     "/register",
-    validators.shortenUrl,
+    celebrate({
+      body: Joi.object({
+        url: Joi.string().required().uri(),
+        accessKey: Joi.string()
+          .min(1)
+          .max(100)
+          .regex(/^[\w-]+$/),
+      }),
+    }),
     async function shortenUrlAction(
       req: Request,
       res: Response,
